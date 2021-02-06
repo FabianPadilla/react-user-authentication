@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+.table-container .table{
+  margin: 0 auto;
+}
+.field-group-edit{
+  display: inline-block;
+  width: 20%;
+}
+.field-group-edit.is-expanded{
+  width: 55%;
+}
+.pagination-link, .pagination-previous, .pagination-next{
+  background-color: #fff;
+}
