@@ -16,11 +16,15 @@ export class FormRegister extends Component {
     e.preventDefault();
     const { email, password, firsName, lastName } = this.state;
     AuthService.signup(email, password, firsName, lastName).then((res) => {
-      if(res.Email === email){
-        this.setState({error: ''});
-        this.setState({ redirect: "/" });
+      if(res.status === 500){
+        this.setState({error: res.error});
       }else{
-        this.setState({error: 'ocurrio un error interno, por favor intenta mas tarde'});
+        if(res.Email === email){
+          this.setState({error: ''});
+          this.setState({ redirect: "/" });
+        }else{
+          this.setState({error: 'ocurrió un error interno, por favor intenta mas tarde'});
+        }
       }
     }).catch((err)=>{
       this.setState({error: err.message});

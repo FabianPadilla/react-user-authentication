@@ -48,7 +48,7 @@ export class UsersPage extends Component {
   }
 
   renderResults = () =>{
-    return this.state.results.length === 0 
+    return (typeof  this.state.results == "undefined") 
       ? <p>Sin resultados</p> 
       : <UserList users={this.state.results} editUser={this.getUser} deleteUser={this.deleteUser} changePage={this.changePage}/>
   }

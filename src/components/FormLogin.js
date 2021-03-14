@@ -21,11 +21,15 @@ export class FormLogin extends Component {
     e.preventDefault();
     const { email, password } = this.state;
     AuthService.login(email, password).then(res => {
-      if(res.Email === email){
-        this.setState({error: ''});
-        this.setState({ redirect: "/" });
+      if(res.status === 500){
+        this.setState({error: res.error});
       }else{
-        this.setState({error: 'usuario o contraseña incorrectos'});
+        if(res.Email === email){
+          this.setState({error: ''});
+          this.setState({ redirect: "/" });
+        }else{
+          this.setState({error: 'usuario o contraseña incorrectos'});
+        }
       }
     });
   }

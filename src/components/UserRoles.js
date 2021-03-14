@@ -13,9 +13,11 @@ export class UserRoles extends Component {
         <select onChange={handleChangeRol} value={valueRol} required>
           <option value="">--</option>
           {
-            roles.map(rol => {
-              return  <option value={rol._id} key={rol._id}>{rol.Name}</option>
-            })
+            (roles.length > 0)
+              ? roles.map(rol => {
+                return  <option value={rol._id} key={rol._id}>{rol.Name}</option>
+              })
+              : ""
           }
         </select>
       </div>

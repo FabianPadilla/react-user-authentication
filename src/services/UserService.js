@@ -8,6 +8,9 @@ class UserService {
       headers: { 'Content-Type': 'application/json',
                  'Authorization': this.getToken()},
     }).then(res => {
+      if (!res.ok && res.status === 500) { 
+        return { "status": 500, "error": "ocurrió un error al comunicarnos con el servidor"};
+      }
       return res.json()
     }).then(results => {
       return results;
@@ -22,6 +25,9 @@ class UserService {
       headers: { 'Content-Type': 'application/json',
                  'Authorization': this.getToken()},
     }).then(res => {
+      if (!res.ok && res.status === 500) { 
+        return { "status": 500, "error": "ocurrió un error al comunicarnos con el servidor"};
+      }
       return res.json()
     }).then(results => {
       return results;
@@ -36,6 +42,9 @@ class UserService {
       headers: { 'Content-Type': 'application/json',
                  'Authorization': this.getToken()},
     }).then(res => {
+      if (!res.ok && res.status === 500) { 
+        return { "status": 500, "error": "ocurrió un error al comunicarnos con el servidor"};
+      }
       return res.json()
     }).then(results => {
       return results;
